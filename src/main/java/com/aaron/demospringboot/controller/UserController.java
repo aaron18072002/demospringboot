@@ -1,6 +1,8 @@
 package com.aaron.demospringboot.controller;
 
 import com.aaron.demospringboot.model.User;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -8,8 +10,9 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
 
     @GetMapping({"/getAllUser", "/"})
-    public String getAllUsers() {
-        return "Hello World";
+    public ResponseEntity<User> getAllUsers() {
+        User user = new User(1,"aaron","thanhanh123");
+        return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
     @GetMapping("/add")
