@@ -35,6 +35,10 @@ public class Users {
     @JoinColumn(name = "role_id")
     private Roles role;
 
+    @OneToOne(fetch = FetchType.EAGER, mappedBy = "user")
+    @PrimaryKeyJoinColumn
+    private UserDetails userDetails;
+
     public int getUserId() {
         return userId;
     }
