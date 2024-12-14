@@ -22,7 +22,7 @@ public class Roles {
     @Column(name = "created_date", columnDefinition = "DATETIME")
     private LocalDateTime createdDate;
 
-    @OneToMany(mappedBy = "role")
+    @OneToMany(mappedBy = "role", fetch = FetchType.LAZY)
     private List<Users> users;
 
     public int getRoleId() {
