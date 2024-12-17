@@ -3,6 +3,7 @@ package com.aaron.demospringboot.entity;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity(name = "Projects")
 public class Projects {
@@ -23,6 +24,9 @@ public class Projects {
 
     @Column(name = "end_date", columnDefinition = "DATETIME")
     private LocalDateTime endDate;
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "project")
+    private List<Projects> projects;
 
     public int getProjectId() {
         return projectId;

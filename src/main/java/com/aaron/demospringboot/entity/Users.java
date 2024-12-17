@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity(name = "Users")
 public class Users {
@@ -38,6 +39,9 @@ public class Users {
     @OneToOne(fetch = FetchType.EAGER, mappedBy = "user")
     @PrimaryKeyJoinColumn
     private UserDetails userDetails;
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
+    private List<Tasks> task;
 
     public int getUserId() {
         return userId;
